@@ -26,10 +26,10 @@ public class WorkerController {
         return this.workerRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Worker findWorkByID(@PathVariable UUID id) {
-        return this.workerRepository.getById(id);
+        return this.workerRepository.findById(id).orElseThrow();
     }
 
 }
